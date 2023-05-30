@@ -10,10 +10,12 @@ import { RestService } from 'src/app/Services/rest.service';
 export class ExchangerateComponent {
   pricies = new Array<CenaZlota>();
   priciesFromCount = new Array<CenaZlota>();
+  priciesFromDate = new Array<CenaZlota>();
 
   constructor(private restService: RestService) {}
 
   topCount: any;
+  date: any;
 
   ngOnInit(): void {
     this.getZloto();
@@ -34,6 +36,7 @@ export class ExchangerateComponent {
   }
 
   onSubmit() {
+    this.priciesFromCount = [];
     this.restService
       .getjson(
         'http://api.nbp.pl/api/cenyzlota/last/' + this.topCount + '?format=json'
@@ -44,6 +47,20 @@ export class ExchangerateComponent {
           c.data = x.data;
           c.cena = x.cena;
           this.priciesFromCount.push(c);
+        });
+      });
+  }
+
+  onSubmitDate() {
+    this.priciesFromDate = [];
+    this.restService
+      .getjson('http://api.nbp.pl/api/cenyzlota/' + this.date + '?format=json')
+      .subscribe((data) => {
+        data.map((x: any) => {
+          const c = new CenaZlota();
+          c.data = x.data;
+          c.cena = x.cena;
+          this.priciesFromDate.push(c);
         });
       });
   }
