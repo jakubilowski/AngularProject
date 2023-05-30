@@ -1,0 +1,9 @@
+.example-card {
+  max-width: 400px;
+  padding: 10px;
+  margin: 30px;
+}
+
+.card-text span {
+  font-weight: bold;
+}

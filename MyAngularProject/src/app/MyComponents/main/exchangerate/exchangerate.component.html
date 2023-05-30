@@ -1,0 +1,17 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>Aktualnie obowiązująca cena złota:</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <ng-container *ngFor="let c of pricies">
+      <div class="row g-2 mt-2">
+        <div class="col">
+          <div class="card-body">
+            <h4 class="card-text"><span>Data:</span> {{ c.data }}</h4>
+            <h4 class="card-text"><span>Cena:</span> {{ c.cena }} PLN</h4>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </mat-card-content>
+</mat-card>
