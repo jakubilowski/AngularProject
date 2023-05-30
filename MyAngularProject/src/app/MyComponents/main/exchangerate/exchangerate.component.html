@@ -9,6 +9,41 @@
           <div class="card-body">
             <h4 class="card-text"><span>Data:</span> {{ c.data }}</h4>
             <h4 class="card-text"><span>Cena:</span> {{ c.cena }} PLN</h4>
+            <h5 class="card-text">Legenda:</h5>
+            <h5>Data - data publikacji ceny</h5>
+            <h5>Cena - wyliczona w NBP cena 1 g złota (w próbie 1000)</h5>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title
+      >Seria ostatnich 'topCount' notowań cen złota:</mat-card-title
+    >
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmit()">
+      <input
+        style="margin-top: 5px"
+        [(ngModel)]="topCount"
+        name="something"
+        placeholder="topCount"
+      />
+      <button style="margin-left: 4px" class="button" type="submit">
+        Wyślij
+      </button>
+    </form>
+    <ng-container *ngFor="let c of priciesFromCount">
+      <div class="row g-2 mt-2">
+        <div class="col">
+          <div class="card-body">
+            <h4 class="card-text"><span>Data:</span> {{ c.data }}</h4>
+            <h4 class="card-text"><span>Cena:</span> {{ c.cena }} PLN</h4>
+            <mat-divider></mat-divider>
           </div>
         </div>
       </div>

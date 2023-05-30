@@ -9,8 +9,11 @@ import { RestService } from 'src/app/Services/rest.service';
 })
 export class ExchangerateComponent {
   pricies = new Array<CenaZlota>();
+  priciesFromCount = new Array<CenaZlota>();
 
   constructor(private restService: RestService) {}
+
+  topCount: any;
 
   ngOnInit(): void {
     this.getZloto();
@@ -26,6 +29,21 @@ export class ExchangerateComponent {
           c.cena = x.cena;
           console.log(c);
           this.pricies.push(c);
+        });
+      });
+  }
+
+  onSubmit() {
+    this.restService
+      .getjson(
+        'http://api.nbp.pl/api/cenyzlota/last/' + this.topCount + '?format=json'
+      )
+      .subscribe((data) => {
+        data.map((x: any) => {
+          const c = new CenaZlota();
+          c.data = x.data;
+          c.cena = x.cena;
+          this.priciesFromCount.push(c);
         });
       });
   }
