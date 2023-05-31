@@ -1,1 +1,33 @@
-<p>contact works!</p>
+<div class="container">
+  <div class="card m-5">
+    <div class="card-body">
+      <h4 class="card-title" style="text-align: center">
+        Formularz kontaktowy
+      </h4>
+
+      <div class="row justify-content-center align-items-center g-2 m-3">
+        <div class="col-6">
+          <div class="card border-primary">
+            <div class="card-body" style="text-align: center">
+              <div class="m-3">
+                <input [(ngModel)]="strEmail" placeholder="podaj email" />
+              </div>
+              <div class="m-3">
+                <input [(ngModel)]="strMessage" placeholder="podaj wiadomość" />
+              </div>
+              <div class="m-3">
+                <button
+                  (click)="btnSendClick()"
+                  type="button"
+                  class="btn btn-primary"
+                >
+                  Skontaktuj się
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
