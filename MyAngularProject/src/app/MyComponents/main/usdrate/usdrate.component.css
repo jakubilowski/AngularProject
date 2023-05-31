@@ -1,0 +1,9 @@
+.example-card {
+  width: 600px;
+  padding: 10px;
+  margin: 30px;
+}
+
+.card-text span {
+  font-weight: bold;
+}

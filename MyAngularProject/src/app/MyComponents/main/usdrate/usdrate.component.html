@@ -1,0 +1,56 @@
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title
+      >Aktualnie obowiązujący kurs średni waluty USD:</mat-card-title
+    >
+    <mat-card-subtitle>
+      <p style="margin-top: 4px">Data - data publikacji kursu</p>
+      <p>Cena - wyliczona w NBP cena 1 dolara amerykańskiego</p>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <ng-container *ngFor="let c of pricies">
+      <div class="row g-2 mt-2">
+        <div class="col">
+          <div class="card-body">
+            <h4 class="card-text"><span>Data:</span> {{ c.effectiveDate }}</h4>
+            <h4 class="card-text"><span>Cena:</span> {{ c.mid }} PLN</h4>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </mat-card-content>
+</mat-card>
+
+<mat-card class="example-card">
+  <mat-card-header>
+    <mat-card-title>
+      Kurs średni waluty USD z dnia 'date' (albo brak danych):
+    </mat-card-title>
+    <mat-card-subtitle> data w formacie RRRR-MM-DD </mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <form (ngSubmit)="onSubmitDate()">
+      <input
+        matInput
+        style="margin-top: 5px"
+        [(ngModel)]="date"
+        name="something"
+        placeholder="RRRR-MM-DD"
+      />
+      <button style="margin-left: 4px" class="button" type="submit">
+        Wyślij
+      </button>
+    </form>
+    <ng-container *ngFor="let c of priciesFromDate">
+      <div class="row g-2 mt-2">
+        <div class="col">
+          <div class="card-body">
+            <h4 class="card-text"><span>Data:</span> {{ c.effectiveDate }}</h4>
+            <h4 class="card-text"><span>Cena:</span> {{ c.mid }} PLN</h4>
+          </div>
+        </div>
+      </div>
+    </ng-container>
+  </mat-card-content>
+</mat-card>

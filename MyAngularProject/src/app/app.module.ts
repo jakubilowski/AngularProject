@@ -15,6 +15,7 @@ import { AboutComponent } from './MyComponents/main/about/about.component';
 import { ContactComponent } from './MyComponents/main/contact/contact.component';
 
 import { HttpClientModule } from '@angular/common/http';
+import { UsdrateComponent } from './MyComponents/main/usdrate/usdrate.component';
 
 @NgModule({
   declarations: [
@@ -24,6 +25,7 @@ import { HttpClientModule } from '@angular/common/http';
     MainComponent,
     AboutComponent,
     ContactComponent,
+    UsdrateComponent,
   ],
   imports: [
     BrowserModule,
